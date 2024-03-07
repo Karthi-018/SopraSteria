@@ -1,0 +1,54 @@
+1) select * from Employees where job_id like '%CLERK' and year(hire_date)>1997;
+
+2)select last_name , job_id,salary , commision_pct from employees where commision_pct is not
+ null order by salary desc;
+
+3)select 'The salary if '||last_name||' after a 10% raise is '||(salary + salary*0.1) as New Salary
+from employees where commision_pct is null;
+
+
+4)select last_name , timestampdiff(year,hire_date,sysdate) as year, timestampdiff(month,hire_date,sysdate) as month from employees order by year desc;
+
+
+5)select last_name from employees where last_name like 'J%' or last_name like 'K%' or last_name like 'L%' or last_name like 'M%';
+
+6)select last_name , salary , decode(commision_pct,null,"No","Yes") as Commision from employees;
+
+7)select d.department_name as Department Name , d.location_id  as location_id,e.last_name as last_name , e.job_id as job_id, e.salary as salary from employees e join department d on employees.dept = department.dID where d.location_id = &location;
+
+
+8)select count(*) as Last Name count with Letter n from employees where last_name like '%n';
+
+                    or
+
+8)select count(*) from employees where substring(reverse(last_name),1,1) = 'n';
+
+
+9)select d.dId as department id , d.department_name as department Name , e.location_id as location_id , count(e.dept) as No of Emp from departments d on employees.dept = department.dID group by d.department_name;
+
+10)select job_id from employees where dept in (10,20) group by job_id;
+
+11)select e.job_id as job_id, count(e.job_id) as frequency from employees e join department d on employees.dept = department.dID where d.department_name in 
+('Administration' , 'Executive') group by e.job_id order by frequency desc;
+
+
+12)select last_name , hire_date from employees where day(hire_date)<16;
+
+
+13)Select last_Name, salary, TRUNC(salary/1000) AS thousands from employees;
+
+14)select e.last_name as last_name, m.manager_name  as manager , m.salary as salary , m.manager_grade from managers m join employee e on employees.manager = managers.manager_id 
+where m.salary > 15000;
+
+15)select d.dID as dept , d.department_name as department name ,count(e.dept) as Employees, avg(e.salary) as AVG Salary, e.last_name as last_name from department d join employees e on employees.dept = department.dID group by e.last_name;
+
+  
+
+
+
+
+
+
+
+
+ 

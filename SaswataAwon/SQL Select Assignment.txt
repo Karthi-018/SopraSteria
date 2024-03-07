@@ -2,7 +2,7 @@
 
 2) Select Last_name, JOB_ID ,salary,Commission_pct from employees where dept=50 AND Commission_pct IS NOT null ORDER BY salary DESC;
 
-3) Select 'The salary of ' || LName || ' after a 10% raise is ' || round(salary + salary * 0.1) AS "New Salary" from employees;
+3) Select 'The salary of ' || LName || ' after a 10% raise is ' || round(salary + salary * 0.1) AS "New Salary" from employees where Commission_pct IS null;
 
 4) Select TRUNC(MONTHS_BETWEEN (CURRENT_DATE,hiredate)/12,0) AS year, TRUNC(MOD(MONTHS_BETWEEN(CURRENT_DATE,hiredate),12)) as months from employees;
 

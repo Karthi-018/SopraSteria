@@ -1,0 +1,96 @@
+-- 1.The HR department need to find for all clerks who were hire after 1997
+-- QUERY 1
+-- SELECT * FROM EMPLOYEES
+-- WHERE EXTRACT(YEAR FROM HIREDATE) > 1997 AND JOB LIKE '%CLERK';
+
+
+-- 2.The HR department needs report of employees who earns commission. Show the last name, job, 
+--   salary and commission of theses employees. Sort the data by salary in descending order.
+--QUERY 2 
+-- SELECT ENAME, SAL, COMM FROM EMPLOYEES 
+-- WHERE COMM IS NOT NULL
+-- ORDER BY SAL DESC;
+
+-- 3.For budgeting purpose, the HR department needs a report on projection raises. 
+--   The report should display those employees who have no commission 
+--   but who have 10% raise in salary(round off the salary) 
+--QUERY 3
+-- SELECT 'The salary if '|| ename || ' after a 10% raise is ' || (sal + sal*.10) "New Salary" FROM EMPLOYEES
+-- WHERE  COMM  IS NULL;	
+
+-- 4.	Create a report of employees and their duration of employment. 
+-- Show the last name of all employees together with the number of years 
+-- and the number of complete months that they have been employed. 
+-- Order the report by the duration job of their employment. 
+-- The employee who has been employed the longest should appear at the top of the list.
+-- Query 4
+-- Select ENAME, EXTRACT(YEAR FROM HIREDATE) AS Year, EXTRACT(MONTH FROM HIREDATE) AS Month from EMPLOYEES
+-- Order by Year desc, Month desc;
+
+
+-- 5.	Show those employees who have a last name starting with the letter J,K,L or M
+-- Query 5
+-- Select ENAME from EMPLOYEES Where ENAME like 'J%' or ENAME like 'K%' or ENAME like 'L%' or ENAME like 'M%' ;
+
+-- 6.Create a report that display all employees and indicate with the YES or NO
+--   whether they receive a commission. Use the DECODE expression in your query.
+-- QUERY 6
+-- SELECT ENAME, SAL, DECODE(COMM, NULL,'NO', 'YES') as Commission From Employees;
+
+-- 7.Create a report that display the department name, location, name, job title and salary of 
+--   those employees who work in a specific location. Prompt the user for the location. 
+--   For example, if the user enters 1800, then following are the result.
+-- QUERY 7
+-- SELECT DEPARTMENT.DNAME, DEPARTMENT.LOC, EMPLOYEES.ENAME, EMPLOYEES.JOB, EMPLOYEES.SAL FROM EMPLOYEES
+-- JOIN DEPARTMENT ON DEPARTMENT.DEPTNO = EMPLOYEES.DEPTNO
+-- WHERE LOC = &ID;
+
+-- 8.Find the number of employees who have a last name that ends with the letter “n”, Create
+-- two Possible solution.
+-- QUERY 8
+-- SELECT count(*) AS "Last Name count with letter n" FROM EMPLOYEES 
+-- WHERE ENAME LIKE '%N';
+
+-- 9.Create the report shows the last name, location and number of employees for each department. 
+-- Make sure that the repost also includes departments with employees.
+-- QUERY 9
+-- SELECT DEPARTMENT.DEPTNO, DEPARTMENT.DNAME, DEPARTMENT.LOC, COUNT(EMPLOYEES.ENAME) FROM DEPARTMENT
+-- JOIN EMPLOYEES ON EMPLOYEES.DEPTNO = DEPARTMENT.DEPTNO
+-- GROUP BY DEPARTMENT.DEPTNO;
+
+-- 10.	The HR department find the Job title in each department 10 and 20. 
+-- Create a report display the jobID for those departments.
+-- QUERY 10
+-- Select Job_id from employees join department ON employees.dept=department.department_id where department.department_id IN (10,20);
+
+-- 11.	Create a report that display the job that are find in the Administration and Executive department. 
+-- Also display the number of employees for these JOBs. Show the job with the highest number of employees first.
+-- QUERY 11
+-- Select Job_id, count(EID) AS Frequency from employees where Job_id like 'AD%' OR Job_id like 'EX%' ORDER BY Frequency;
+
+-- 12.	Show all the employees who were hired in the first half of the month (before the 16th of the month)
+-- QUERY 12
+-- Select ENAME from Employees where DAY(hiredate)<'16';
+
+-- 13.	Create a report that display the following for all employees:
+-- last_name, salary and salary expressed in terms of thousands of dollar.
+-- QUERY 13
+--  Select ENAME, SAL, TRUNC(SAL/1000) AS Thousands from employees;
+
+-- 14.	Show all the employees who have manager with a salary higher then $15,000. Show the following data: 
+-- employee name, manager name, manager salary and salary grade of the manager.
+-- QUERY 14
+--Select employees.ENAME AS "Last Name" ,manager.manager_name AS Manager,manager.SAL AS Salary, manager.grade AS Grade_Level from employees
+--join manager ON employees.manager=manager.manager_id where manager.salary>15000;
+
+--Select employees.Last_Name AS "Last Name" ,manager.manager_name AS Manager,manager.salary AS Salary, manager.grade AS Grade_Level from employees 
+--join manager ON employees.manager=manager.manager_id where manager.salary>15000;
+
+-- 15.	Show the department number, name, number of employees and avg salary of all departments 
+-- along with the names, salary and jobs of the employees working in each department.
+-- QUERY 15
+--Select employees.DEPTNO AS Dept, department.DNAME AS "Department Name", count(employees.DEPTNO) AS Employees, avg(employees.SAL) AS "AVG SAL",employees.ENAME from employees 
+-- join department ON employees.DEPTNO=department.DEPTNO GROUP BY employees.DEPTNO; 
+
+
+

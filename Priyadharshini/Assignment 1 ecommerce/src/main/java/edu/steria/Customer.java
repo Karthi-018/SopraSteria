@@ -7,9 +7,7 @@ import java.util.*;
         }
         void searchproduct(String search)
         {
-           for(int i=0;i<k;i++)
-           {
-               if(search.equals(stringArray[i])) {
+               if(search.equals(stringArray)) {
                    System.out.println("The product you searched for is found");
                    System.out.println(stringArray);
                }
@@ -17,7 +15,7 @@ import java.util.*;
                    System.out.println("the product is not found");
                }
           }
-    }
+    
 
 }
 

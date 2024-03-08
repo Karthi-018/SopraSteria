@@ -24,7 +24,7 @@ from employees where commision_pct is null;
 8)select count(*) from employees where substring(reverse(last_name),1,1) = 'n';
 
 
-9)select d.dId as department id , d.department_name as department Name , e.location_id as location_id , count(e.dept) as No of Emp from departments d on employees.dept = department.dID group by d.department_name;
+9)select d.dId as department id , d.department_name as department Name , e.location_id as location_id , count(e.dept) as No of Emp from departments d join employees e on employees.dept = department.dID group by d.department_name;
 
 10)select job_id from employees where dept in (10,20) group by job_id;
 

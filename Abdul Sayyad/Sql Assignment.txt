@@ -40,7 +40,7 @@ from employees where commision_pct is null;
 14)select e.last_name as last_name, m.manager_name  as manager , m.salary as salary , m.manager_grade from managers m join employee e on employees.manager = managers.manager_id 
 where m.salary > 15000;
 
-15)select d.dID as dept , d.department_name as department name ,count(e.dept) as Employees, avg(e.salary) as AVG Salary, e.last_name as last_name from department d join employees e on employees.dept = department.dID group by e.last_name;
+15)select d.dID as dept , d.department_name as department name ,count(e.dept) as Employees, avg(e.salary) as AVG Salary, e.last_name as last_name from department d join employees e on employees.dept = department.dID group by d.diD;
 
   
 

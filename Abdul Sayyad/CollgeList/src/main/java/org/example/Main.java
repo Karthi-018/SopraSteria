@@ -35,7 +35,7 @@ public class Main {
                     System.out.println(list);
                     System.out.println("1.Sort by name");
                     System.out.println("2.Sort by Date");
-                    System.out.println("3.Sort by location");
+                    System.out.println("3.Sort by Department No");
                     System.out.print("Enter your choice : ");
                     int ch1 = sc.nextInt();
                     switch (ch1){
@@ -48,7 +48,7 @@ public class Main {
                        break;
                         }
                         case 3:{
-                            Collections.sort(list1,(o1,o2)->o1.getLocation().compareTo(o2.getLocation()));
+                            Collections.sort(list1,(o1,o2)->o1.getNumberOfDept()>o2.getNumberOfDept()?1:-1);
                              break;
                         }
                         default:{

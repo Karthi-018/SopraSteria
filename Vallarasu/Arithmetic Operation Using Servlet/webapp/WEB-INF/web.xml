@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Demo2</display-name>
+  
+  <servlet>
+  <servlet-name>fservlet</servlet-name>
+  <servlet-class>edu.training.ArithmeticServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>sservlet</servlet-name>
+  <servlet-class>edu.training.SecondServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>fservlet</servlet-name>
+  <url-pattern>/FServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+  <servlet-name>sservlet</servlet-name>
+  <url-pattern>/SServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>

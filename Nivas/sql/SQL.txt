@@ -1,0 +1,61 @@
+SQL
+--1
+--select *from employees 
+--WHERE Extract( YEAR FROM HIREDATE)<1997 and job like'%CLARK';
+--2
+--select ename,sal,comm from employees 
+--where comm Is NOT null 
+--ORDER BY sal DESC
+
+--3
+--select 'The salary if '||ename||' after a 10% raise is '||(sal+sal*.10) from employees
+--where comm is  null
+
+--4
+--Select ENAME, EXTRACT(YEAR FROM HIREDATE) AS Year, EXTRACT(MONTH FROM HIREDATE) AS Month from EMPLOYEES
+--Order by Year desc, Month desc;
+--select * from department
+
+--5
+--select ename from employees where ename like'L%'or ename like'J%' or ename like'K%' or ename like'M%'
+
+--6
+--SELECT ENAME,SAL,DECODE(COMM,NULL,'NO','YES') AS COMM FROM EMPLOYEES
+
+--7
+--SELECT DEPARTMENT.DNAME, DEPARTMENT.LOC, EMPLOYEES.ENAME, EMPLOYEES.JOB, EMPLOYEES.SAL FROM EMPLOYEES
+--JOIN DEPARTMENT ON DEPARTMENT.DEPTNO = EMPLOYEES.DEPTNO
+--WHERE LOC = &ID;
+
+--8
+-- SELECT count(*) AS "Last Name count with letter n" FROM EMPLOYEES 
+-- WHERE ENAME LIKE '%N';
+
+--9
+-- SELECT DEPARTMENT.DEPTNO, DEPARTMENT.DNAME, DEPARTMENT.LOC, COUNT(EMPLOYEES.ENAME) FROM DEPARTMENT
+--JOIN EMPLOYEES ON EMPLOYEES.DEPTNO = DEPARTMENT.DEPTNO
+--GROUP BY DEPARTMENT.DEPTNO;
+
+--10
+--Select Job_id from employees join department ON employees.dept=department.department_id where department.department_id IN (10,20);
+
+--11
+-- Select Job_id, count(EID) AS Frequency from employees where Job_id like 'AD%' OR Job_id like 'EX%' ORDER BY Frequency;
+
+--12
+-- Select ENAME from Employees where DAY(hiredate)<'16';
+
+--13
+--  Select ENAME, SAL, TRUNC(SAL/1000) AS Thousands from employees;
+
+--14
+--Select employees.ENAME AS "Last Name" ,manager.manager_name AS Manager,manager.SAL AS Salary, manager.grade AS Grade_Level from employees
+--join manager ON employees.manager=manager.manager_id where manager.salary>15000;
+
+--15
+--Select employees.DEPTNO AS Dept, department.DNAME AS "Department Name", count(employees.DEPTNO) AS Employees, avg(employees.SAL) AS "AVG   	SAL",employees.ENAME from employees 
+-- join department ON employees.DEPTNO=department.DEPTNO GROUP BY employees.DEPTNO; 
+
+
+
+

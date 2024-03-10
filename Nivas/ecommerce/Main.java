@@ -120,6 +120,7 @@ import java.util.*;
 
         public static void customeractions(Scanner scanner) {
             System.out.println("welcome customer");
+            System.out.println("Shop closed");
             viewProducts(scanner);
             
         }

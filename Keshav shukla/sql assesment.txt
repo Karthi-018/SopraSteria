@@ -1,0 +1,62 @@
+1.select * from department where jobid like '%clerk' and hire_date>31-dec-1997;
+
+2. select last_name,job,salary,commission_pct from department where commission_pct IS NOT null order by salary desc;
+
+3. select * from department where commission_pct IS null AND ROUND(salary * 1.1) <> salary;
+
+4. select last_name,year,month from employee order by (year*12 + months) DESC;
+
+5.select * from employee where last_name LIKE 'L%' OR 'J%' OR 'K%' OR 'M%';
+
+6.select * Decode(commmision,IS NULL,'NO',IS NOT  NULL,'YES') from employee;
+
+7.7)select d.department_name as Department Name , d.location_id  as location_id,e.last_name as last_name , e.job_id as job_id, e.salary as salary from employees e join department d on employees.dept = department.dID where d.location_id = &location;
+
+8.select count(employee) from employee where last_name LILKE '%n';
+                       or
+select COUNT(CASE WHEN last_name LIKE '%n' THEN 1 ELSE NULL END) AS count_with_n
+FROM employee;
+9.select d.department_name, d.location, COUNT(e.employee_id) AS num_employees
+FROM department d
+LEFT JOIN employee e ON d.department_id = e.department_id
+GROUP BY d.department_name, d.location;
+10.Select job_id
+FROM job
+WHERE department_id = 'HR' OR department_id IN (10, 20);
+11.Select j.job_title AS Job_Title,
+    d.department_name AS Department_Name,
+    COUNT(e.employee_id) AS Number_of_Employees
+FROM 
+    employees e
+JOIN 
+    jobs j ON e.job_id = j.job_id
+JOIN 
+    departments d ON e.department_id = d.department_id
+WHERE 
+    d.department_name IN ('Administration', 'Executive')
+GROUP BY 
+    j.job_title, d.department_name
+ORDER BY 
+    Number_of_Employees DESC;
+12.select * from employees WHERE DAY(HIRE_DATE) < 16;
+
+13.select last_name ,salary,salary/1000 As thousands from employee;
+
+14.selecte.employee_name AS Employee_Name,
+    m.manager_name AS Manager_Name,
+    m.manager_salary AS Manager_Salary,
+    s.salary_grade AS Manager_Salary_Grade
+FROM employees e JOIN employees m ON e.manager_id = m.employee_id
+JOIN salary_grades s ON m.manager_salary BETWEEN sg.min_salary AND s.max_salary
+WHERE m.manager_salary > 15000;
+15.select d.dept_number as dept,d.department_name AS DEPTNAME,count(e.employee_id) AS employee avg(s.salary) AS AVGSAL,e.last_name AS LASTNAME
+   from employee e 
+JOIN department d ON e.employee_id=d.department_id
+   d.department_number, d.department_name, e.employee_name, e.salary;
+   
+
+
+
+
+
+  

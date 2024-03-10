@@ -1,0 +1,86 @@
+QUERY 1
+
+SELECT * 
+FROM employees
+WHERE EXTRACT(YEAR FROM hiredate)>1997 AND Job_ID LIKE '%CLERK%' ;
+
+QUERY 2
+
+SELECT last_name,JOB_ID,Salary,Commission_pct 
+FROM employees 
+WHERE Commission_pct IS NOT NULL 
+ORDER BY salary ;
+
+QUERY 3
+
+SELECT ‘The salary of ‘ || LName || ' after a 10% raise is ' || round(salary + (salary * 0.1)) as "New Salary" FROM employees;
+
+QUERY 4
+
+SELECT LName, MONTHS_BETWEEN(SYSDATE,HIRE_DATE)/12 AS “YEARS” , MONTHS_BETWEEN(SYSDATE,HIRE_DATE)%12 AS “MONTHS” 
+FROM employees
+ORDER BY hire_date;
+
+QUERY 5
+
+SELECT * 
+FROM employees
+WHERE LAST_NAME LIKE ‘J%’ OR ‘K%’ OR ‘L%’ OR ‘M%’ ;
+  
+QUERY 6
+
+SELECT Last_Name,salary, DECODE (commission,NULL,'No','Yes') AS “Commission “
+FROM employees;
+
+QUERY 7
+
+SELECT *
+FROM employees
+WHERE &Location ID ;
+
+QUERY 8
+
+SELECT COUNT(*) AS “ Last Name count with Letter n” 
+FROM employees 
+WHERE LName LIKE '%n';
+
+QUERY 9
+
+SELECT LName, Location ID, No of Emp
+FROM employees
+GROUP BY Department Name;
+
+QUERY 10
+
+SELECT Job_id
+FROM employees
+WHERE Department ID = 10 OR Department ID = 20;
+
+QUERY 11
+
+SELECT Job ID, COUNT(Emp ID) AS “Frequency”
+FROM employees
+WHERE Job ID LIKE 'AD%' OR JOB ID like '%Executive% OR Job ID LIKE ‘%Administration%’ 
+ORDER BY Frequency; 
+
+QUERY 12
+
+SELECT *
+FROM employees
+WHERE  EXTRACT(DAY FROM HIRE_DATE)<16;
+
+QUERY 13
+
+SELECT last_name,salary,(salary/1000) AS “Thousands”
+FROM employees; 
+
+QUERY 14
+
+SEELCT employee name,manager name,manager salary,salary grade
+FROM employees
+WHERE salary>15000; 
+
+QUERY 15
+
+SELECT Dept, Dept Name, COUNT(Dept) AS “Employees”,AVG(salary) AS “AVG Salary”,Last_name
+FROM employees;

@@ -1,0 +1,69 @@
+1.)
+
+select * from employee where job_ID like '%CLERK%' and Hire_date > '12/31/1997';
+------------------------------------------------------------------------------------------------------------------------------------------
+2.)
+
+select Last_name, job_ID, Salary, Commission_pct from employee where Commission_pct is not null order by Salary desc;
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+3.)
+
+select 'The Salary if ' || Last_name ||' after a 10% raise is ' || round((Salary+(Salary*0.1)),0) "New salary" from employee where Commission_pct is null; 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+4.)
+
+select ename, round(months_Between(sysdate,Hire_date)/12, 0) year, round(months_Between(sysdate,Hire_date), 0) months from employee order by months desc;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------5.)
+
+select Last_name from employee where Last_name like 'J%' or Last_name like 'K%' or Last_name like 'L%' or Last_name like 'M%';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.)
+
+select Last_name, Salary, decode(Commission_pct, null, 'NO', 'YES') Commission from employee;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+7.)
+
+select d.dname "Department Name" , d.loc  "Location ID" ,e.Last_name as "Last Name" , e.job_ID "Job ID", e.Salary Salary from employee e join dept d on e.deptno = d.deptno where d.loc = &loc;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------8.)
+
+select count(*) as "Last name count with letter n" from employee where Last_name like '%n';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.)
+
+select d.deptno "Department id", d.dname "Department Name" , d.loc  "Location ID" , count(*) "No of Emp" from employee e join dept d on e.deptno = d.deptno group by d.deptno,d.dname,d.loc;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------10.)
+
+select distinct(job) from employee where deptno = 10 or deptno = 20;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.)
+
+ select e.job as "Job ID", count(*) as frequency from employee e join dept d on e.deptno = d.deptno where d.dname in ('Administration' , 'Executive') group by e.job order by frequency desc;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------12.) 
+select Last_name from employee where TO_CHAR(hiredate, 'DD')<'16';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------13.)
+
+select Last_name, Salary, trunc(Salary/1000,0) Thousands from employee;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+14.)
+
+select e.Last_name "Last Name", m.manager_name "Manager" , m.Salary , m.grade "Grade Level" from managers m join employee e on e.mgrid = m.mgrid where m.Salary > 15000;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+15.)
+
+select d.deptno Dept , d.dname "Dept name" ,count(*) Employees, avg(e.Salary) as "AVG Salary" from dept d join employee e on e.deptno = d.deptno group by d.deptno, d.dname;

@@ -42,7 +42,7 @@ public class buy extends HttpServlet {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","root");
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("select quantity from product where pname ="+"'"+pname+"'");
-            if(rs.next() && pquant < rs.getInt(1)) {
+            if(rs.next() && pquant <= rs.getInt(1)) {
             	PreparedStatement ps = connection.prepareStatement("update product set quantity = ? where pname = ?");
             	ps.setInt(1,rs.getInt(1)-pquant);
             	ps.setString(2, pname);

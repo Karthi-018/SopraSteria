@@ -69,9 +69,9 @@ public class App
     	
     	Session session1 = sf.openSession();
     	Transaction tx1 = session1.beginTransaction();
-    	Query q = session1.createQuery("from Student sName=:n");
-    	q.setString("n", "Sivaazhini");
-    	Student students = (Student)q.uniqueResult();
+    	Query q = session1.createQuery("from Student");
+    	
+    	List<Student> students = (List<Student>)q.list();
   
     	tx1.commit();
     	session1.close();

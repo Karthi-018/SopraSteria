@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action = "actionservlet">
-	<input type = "submit" name="choice" value="Create">
+<center>
+<form action = "CustomerActionservlet">
 	<input type = "submit" name="choice" value="Search">
 	<input type = "submit" name="choice" value="View">
 	<input type = "submit" name="choice" value="Logout">
 </form>
+</center>
 </body>
-</html>
+</html> 

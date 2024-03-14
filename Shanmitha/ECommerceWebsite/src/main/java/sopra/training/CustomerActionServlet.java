@@ -9,15 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/actionservlet")
-public class ActionServlet extends HttpServlet {
+/**
+ * Servlet implementation class CustomerActionServlet
+ */
+@WebServlet("/CustomerActionservlet")
+public class CustomerActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ActionServlet() {
+    public CustomerActionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +33,12 @@ public class ActionServlet extends HttpServlet {
         
 		switch(choice)
 		{
-		case "Create":
-			response.sendRedirect("createProduct.jsp");
-			break;
 		case "Search":
-			response.sendRedirect("searchProduct.jsp");
+			response.sendRedirect("customerSearchProduct.jsp");
 			break;
 		case "View":
 			//response.sendRedirect("viewProduct.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("/ViewServlet");
+			RequestDispatcher rd = request.getRequestDispatcher("/CustomerViewServlet");
 			rd.forward(request, response);
 			break;
 		case "Logout":

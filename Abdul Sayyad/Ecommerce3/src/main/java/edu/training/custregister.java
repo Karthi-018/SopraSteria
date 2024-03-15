@@ -54,7 +54,7 @@ public class custregister extends HttpServlet {
             ps.setString(4, passw);
             ps.setString(5, dob);
             ps.setString(6, gender);
-            ps.setString(7, "deny");
+            ps.setString(7, "new");
             ps.execute();
 		}catch(Exception e) {
 			System.out.println(e);
@@ -74,11 +74,17 @@ public class custregister extends HttpServlet {
 			    ResultSet rs = statement.executeQuery("select first_name,email,passw,access from customer1 where email =" +"'" + uemail + "' and passw = "+ "'" + pass +"' and access = 'accept'");
 				RequestDispatcher rd = request.getRequestDispatcher("customer.jsp");
 			    if(!rs.next()) {
-				    ResultSet rs1 = statement.executeQuery("select first_name,email,passw,access from customer1 where email =" +"'" + uemail + "' and passw = "+ "'" + pass +"' and access = 'deny'");
+				    ResultSet rs1 = statement.executeQuery("select first_name,email,passw,access from customer1 where email =" +"'" + uemail + "' and passw = "+ "'" + pass +"' and access = 'deny' ");
+				    int flag = 0;
 				    if(rs1.next()) {
 				    	out.println("<h1>Login Not Accessible</h1>");
+				    	flag = 1;
 				    }
-				    else {
+				    ResultSet rs2 = statement.executeQuery("select first_name,email,passw,access from customer1 where email =" +"'" + uemail + "' and passw = "+ "'" + pass +"' and access = 'new' ");
+				    if(rs2.next()) {
+				    	out.println("<h1>Login Not Accessible</h1>");
+				    }
+				    else if(flag == 0) {
 			    	out.println("<h1>Who are you?</h1>");
 				    }
 			    }else {

@@ -10,8 +10,8 @@
 <h3><center>LOGIN</center></h3>
 <center>
 <form action="CustomerLoginServlet" >
-<label>USERNAME  </label>
-<input type="text" placeholder="Enter Username" name="uname" required><br><br>
+<label>EMAIL ID  </label>
+<input type="text" placeholder="Enter Email ID" name="email" required><br><br>
 <label>PASSWORD  </label>
 <input type="password" placeholder="Enter Password" name="psw" required><br><br>
 <input type="submit"  value="login" name="login">

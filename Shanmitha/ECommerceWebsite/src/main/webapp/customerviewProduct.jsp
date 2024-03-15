@@ -23,7 +23,7 @@ ResultSet rs=(ResultSet)request.getAttribute("resultSet");
     			+ "      <th scope=\"col\">Description</th>\r\n"
     			+ "      <th scope=\"col\">Price</th>\r\n"
     			+ "      <th scope=\"col\">Quantity</th>\r\n"
-    			+ "      <th scope=\"col\">Buy</th>\r\n"
+    			+ "      <th scope=\"col\">Action</th>\r\n"
     			+ "    </tr>\r\n"
     			+ "  </thead>\r\n");
 if(rs!=null)
@@ -38,6 +38,8 @@ if(rs!=null)
     			+ "      <td>"+rs.getInt(4)+"</td>\r\n"
     			+ "      <td>"+rs.getInt(5)+"</td>\r\n"
     			+ "      <td><form action='CustomerBuyServlet'><button name='buy' value="+rs.getInt(1)+">Buy</button></form>"
+    			+ "      <td><form action='AddToWishlistServlet'><button name='wish' value="+rs.getInt(1)+">Add to Wishlist</button></form>"
+    			+ "      <td><form action='AddToCartServlet'><button name='cart' value="+rs.getInt(1)+">Add to Cart</button></form>"
     			+ "    </tr>\r\n"
     			+ "  </tbody>\r\n");
 	  }while(rs.next());

@@ -11,6 +11,8 @@
 <form action = "CustomerActionservlet">
 	<input type = "submit" name="choice" value="Search">
 	<input type = "submit" name="choice" value="View">
+	<input type = "submit" name="choice" value="Cart">
+	<input type = "submit" name="choice" value="Wishlist">
 	<input type = "submit" name="choice" value="Logout">
 </form>
 </center>

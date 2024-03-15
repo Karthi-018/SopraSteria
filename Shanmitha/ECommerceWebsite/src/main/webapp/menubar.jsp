@@ -11,6 +11,7 @@
 	<input type = "submit" name="choice" value="Create">
 	<input type = "submit" name="choice" value="Search">
 	<input type = "submit" name="choice" value="View">
+	<input type = "submit" name="choice" value="ValidateCustomer">
 	<input type = "submit" name="choice" value="Logout">
 </form>
 </body>

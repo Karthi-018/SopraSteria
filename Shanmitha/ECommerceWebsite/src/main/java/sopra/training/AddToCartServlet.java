@@ -1,25 +1,29 @@
 package sopra.training;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CustomerActionServlet
+ * Servlet implementation class AddToCartServlet
  */
-@WebServlet("/CustomerActionservlet")
-public class CustomerActionServlet extends HttpServlet {
+@WebServlet("/AddToCartServlet")
+public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerActionServlet() {
+    public AddToCartServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,29 +33,22 @@ public class CustomerActionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String choice = request.getParameter("choice");
-        
-		switch(choice)
+		PrintWriter out=response.getWriter();
+		int product_ID=Integer.parseInt(request.getParameter("cart"));
+		HttpSession session = request.getSession();
+		int cust_ID = (int)session.getAttribute("cust_ID");
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection c= DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce","root","root");
+			PreparedStatement s=c.prepareStatement("insert into cart values (?,?)");
+			s.setInt(1,cust_ID);
+			s.setInt(2, product_ID);
+			s.executeUpdate();
+			request.getRequestDispatcher("/CustomerViewServlet").forward(request,response);
+			//response.sendRedirect("customerviewProduct.jsp");
+		}catch(Exception e)
 		{
-		case "Search":
-			response.sendRedirect("customerSearchProduct.jsp");
-			break;
-		case "View":
-			//response.sendRedirect("viewProduct.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("/CustomerViewServlet");
-			rd.forward(request, response);
-			break;
-		case "Cart":
-			RequestDispatcher rd1 = request.getRequestDispatcher("/DisplayCartServlet");
-			rd1.forward(request, response);
-			break;
-		case "Wishlist":
-			RequestDispatcher rd2 = request.getRequestDispatcher("/DisplayWishlistServlet");
-			rd2.forward(request, response);
-			break;
-		case "Logout":
-			response.sendRedirect("index.jsp");
-			break;
+			out.println(e);
 		}
 	}
 

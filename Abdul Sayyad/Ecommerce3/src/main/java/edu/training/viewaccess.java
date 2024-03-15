@@ -37,7 +37,7 @@ public class viewaccess extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<>();
 		List<String> list1 = new ArrayList<>();
-
+		List<String> list2 = new ArrayList<>();
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver");        
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","root");
@@ -51,8 +51,14 @@ public class viewaccess extends HttpServlet {
 		    while(rs1.next()) {
 				   list1.add(rs1.getString(1));
 			   }
+		    ResultSet rs2 = statement.executeQuery("select email from customer1 where access = 'new'");
+		    while(rs2.next()) {
+				   list2.add(rs2.getString(1));
+			   }
 		   request.setAttribute("emaillist", list);
 		   request.setAttribute("emaillist1", list1);
+		   request.setAttribute("emaillist2", list2);
+
 
 		   rd.forward(request, response);
 		}catch(Exception e) {

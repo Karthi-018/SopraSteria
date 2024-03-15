@@ -5,14 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
+<br>
 <form action = "ActionServlet">
-<input type = "submit" name = "choice" value = "Customer List">
-<input type = "submit" name = "choice" value = "Create">
-<input type = "submit" name = "choice" value = "Search">
-<input type = "submit" name = "choice" value = "View">
-<input type = "submit" name = "choice" value = "Log Out">
-</form>
+<input type = "submit" name = "choice" value = "Customer List" class="btn btn-primary">
+<input type = "submit" name = "choice" value = "Create" class="btn btn-primary">
+<input type = "submit" name = "choice" value = "Search" class="btn btn-primary">
+<input type = "submit" name = "choice" value = "View" class="btn btn-primary">
+<input type = "submit" name = "choice" value = "Log Out" class="btn btn-primary">
+</form><br><br>
 </body>
 </html>

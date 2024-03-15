@@ -58,8 +58,11 @@ if(rs!=null) {
     }
 }
 %>
- 
 </table>
- 
+		<br>
+		<br>
+         <form action='CustomerBuyAllServlet'>
+          <button name='buy' value="buy">Buy All</button>
+        </form>
 </body>
 </html>

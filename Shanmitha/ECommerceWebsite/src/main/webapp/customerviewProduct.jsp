@@ -30,6 +30,7 @@ if(rs!=null)
 		{
 	if(rs.next()){
 	  do{
+		  String s = rs.getInt(1)+":"+rs.getString(2);
 		out.println("  <tbody>\r\n"
     			+ "    <tr>\r\n"
     			+ "      <th scope=\"row\">"+rs.getInt(1)+"</th>\r\n"
@@ -37,7 +38,7 @@ if(rs!=null)
     			+ "      <td>"+rs.getString(3)+"</td>\r\n"
     			+ "      <td>"+rs.getInt(4)+"</td>\r\n"
     			+ "      <td>"+rs.getInt(5)+"</td>\r\n"
-    			+ "      <td><form action='CustomerBuyServlet'><button name='buy' value="+rs.getInt(1)+">Buy</button></form>"
+    			+ "      <td><form action='CustomerBuyServlet'><button type='submit' name='buy' value="+rs.getInt(1)+">Buy</button></form>"
     			+ "      <td><form action='AddToWishlistServlet'><button name='wish' value="+rs.getInt(1)+">Add to Wishlist</button></form>"
     			+ "      <td><form action='AddToCartServlet'><button name='cart' value="+rs.getInt(1)+">Add to Cart</button></form>"
     			+ "    </tr>\r\n"

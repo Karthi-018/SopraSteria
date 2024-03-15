@@ -37,7 +37,6 @@ public class CustomerActionServlet extends HttpServlet {
 			response.sendRedirect("customerSearchProduct.jsp");
 			break;
 		case "View":
-			//response.sendRedirect("viewProduct.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("/CustomerViewServlet");
 			rd.forward(request, response);
 			break;

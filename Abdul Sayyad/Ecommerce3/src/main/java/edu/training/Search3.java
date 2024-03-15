@@ -47,11 +47,15 @@ public class Search3 extends HttpServlet {
             ArrayList<String> pnames = new ArrayList<String>();
             ArrayList<String> pdescs = new ArrayList<String>();
             ArrayList<Integer> pprices = new ArrayList<Integer>();
+	    request.setAttribute("msg", "<h2 style = 'color:red'> Product Not Available<h2>");
+
             while(rs.next()) {
             	pids.add(rs.getInt(1));
             	pnames.add(rs.getString(2));
             	pdescs.add(rs.getString(3));
             	pprices.add(rs.getInt(5));
+		request.setAttribute("msg", "");
+
             }
             request.setAttribute("pids", pids);
             request.setAttribute("pnames", pnames);

@@ -12,9 +12,11 @@
 </head>
 <body>
 <center><%@include file= "index.jsp" %></center>
-<%! List<String> list = new ArrayList<>(); List<String> list1 = new ArrayList<>(); %>
+<%! List<String> list = new ArrayList<>(); List<String> list1 = new ArrayList<>(); List<String> list2 = new ArrayList<>(); %>
  <% list = (ArrayList<String>)request.getAttribute("emaillist");%>
   <% list1 = (ArrayList<String>)request.getAttribute("emaillist1");%>
+    <% list2 = (ArrayList<String>)request.getAttribute("emaillist2");%>
+  
  
   <center>
   <table class="table">
@@ -29,12 +31,12 @@
   </thead>
    <tbody>
    <%
-   for(int i=0;i<list.size();i++){
+   for(int i=0;i<list2.size();i++){
 	   out.println("<tr>");
-	   out.println("<td>"+list.get(i)+"</td>");
-	   out.println("<td style = 'color:red'>In-Active</td>");
+	   out.println("<td>"+list2.get(i)+"</td>");
+	   out.println("<td style = 'color:blue'>New User</td>");
 	   out.println("<td><form action = 'approvelogin'>");
-	   out.println("<button name = 'email' value = " + "'"+ list.get(i)+"'"+ ">Activate</button><br></form></td>");
+	   out.println("<button name = 'email' value = " + "'"+ list2.get(i)+"'"+ ">Activate</button><br></form></td>");
    }
    for(int i=0;i<list1.size();i++){
 	   out.println("<tr>");
@@ -42,8 +44,17 @@
 	   out.println("<td style = 'color:green' >Active</td>");
 	   out.println("<td><form action = 'disapprovelogin'>");
 	   out.println("<button name = 'email' value = " + "'"+ list1.get(i)+"'"+ ">De-Activate</button><br></form></td>");
-	   out.println("</tr>");
    }
+   for(int i=0;i<list.size();i++){
+	   out.println("<tr>");
+	   out.println("<td>"+list.get(i)+"</td>");
+	   out.println("<td style = 'color:red'>In-Active</td>");
+	   out.println("<td><form action = 'approvelogin'>");
+	   out.println("<button name = 'email' value = " + "'"+ list.get(i)+"'"+ ">Activate</button><br></form></td>");
+	   out.println("</tr>");
+
+   }
+  
    %>
   </tbody>
 

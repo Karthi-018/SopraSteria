@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CustomerActionServlet
@@ -49,6 +50,8 @@ public class CustomerActionServlet extends HttpServlet {
 			rd2.forward(request, response);
 			break;
 		case "Logout":
+			HttpSession session = request.getSession();
+			session.invalidate();
 			response.sendRedirect("index.jsp");
 			break;
 		}

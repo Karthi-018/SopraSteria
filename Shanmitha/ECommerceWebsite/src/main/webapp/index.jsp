@@ -41,7 +41,7 @@
 </head>
 <body>
 
-<h1>Welcome to E-Commerce</h1>
+<h1>Welcome to E-Kart</h1>
 <center>
 <form action="UserTypeServlet">
   <input type="submit" name="choice" value="Admin"><br><br>

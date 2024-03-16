@@ -66,6 +66,7 @@ ResultSet rs1=(ResultSet)request.getAttribute("resultSet1");
                 <th scope="col">D.O.B</th>
                 <th scope="col">Gender</th>
                 <th scope="col">Status</th>
+                <th scope="col">Validation</th>
             </tr>
         </thead>
  
@@ -81,6 +82,7 @@ ResultSet rs1=(ResultSet)request.getAttribute("resultSet1");
                 <td><%= rs.getString(3) %></td>
                 <td><%= rs.getString(6) %></td>
                 <td><%= rs.getString(7) %></td>
+                <td><p style="color:red;"><%= rs.getString(8) %></p></td>
                 <td>
                     <form action='AdminValidationServlet'>
                         <button class='validate-button' name='validate' value="<%= rs.getString(4) %>">Validate</button>
@@ -107,6 +109,7 @@ ResultSet rs1=(ResultSet)request.getAttribute("resultSet1");
                 <td><%= rs1.getString(3) %></td>
                 <td><%= rs1.getString(6) %></td>
                 <td><%= rs1.getString(7) %></td>
+                <td><p style="color:green;"><%= rs1.getString(8) %></p></td>
                 <td>
                     <form action='AdminInvalidationServlet'>
                         <button class='invalidate-button' name='invalidate' value="<%= rs1.getString(4) %>">Invalidate</button>

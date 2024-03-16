@@ -8,6 +8,6 @@
 </head>
 <body>
 	<center><%@ include file="menubar.jsp" %></center>
-	<h1 style="text-align:center;">Welcome to E-Commerce</h1>
+	<h1 style="text-align:center;">Welcome to E-Kart</h1>
 </body>
 </html>

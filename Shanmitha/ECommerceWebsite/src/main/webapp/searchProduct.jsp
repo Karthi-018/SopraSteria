@@ -15,6 +15,7 @@
 <label>Name</label>
 <input type = "text" name = "search"   placeholder = "Enter product name to search:">
 <input type = "submit" value = "search" name="act"></form>
+<center>
 <% 
 
 ResultSet rs = (ResultSet)request.getAttribute("resultSet"); 
@@ -44,5 +45,6 @@ if(rs!=null )
     			+ "</table>");
 }
 %>
+</center>
 </body>
 </html>

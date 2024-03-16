@@ -42,9 +42,15 @@ public class ValidateCustomerServlet extends HttpServlet {
 	        PreparedStatement ps = connection.prepareStatement("select * from customer_details where status = ?");
 	        ps.setString(1, "inactive");
 	        ResultSet rs = ps.executeQuery();
+	        
+	        PreparedStatement ps1 = connection.prepareStatement("select * from customer_details where status = ?");
+	        ps1.setString(1, "active");
+	        ResultSet rs1 = ps1.executeQuery();
 
 	        request.setAttribute("resultSet", rs);
+	        request.setAttribute("resultSet1", rs1);
 	        RequestDispatcher rd = request.getRequestDispatcher("validateCustomer.jsp");
+	
 	        rd.forward(request, response);
 	        
 	       

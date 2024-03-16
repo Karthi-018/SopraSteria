@@ -18,12 +18,10 @@ ResultSet rs=(ResultSet)request.getAttribute("resultSet");
     	        + "<table class=\"table\">\r\n"
     			+ "  <thead>\r\n"
     			+ "    <tr>\r\n"
-    			+ "      <th scope=\"col\">PID</th>\r\n"
     			+ "      <th scope=\"col\">Pname</th>\r\n"
     			+ "      <th scope=\"col\">Description</th>\r\n"
     			+ "      <th scope=\"col\">Price</th>\r\n"
     			+ "      <th scope=\"col\">Quantity</th>\r\n"
-    			+ "      <th scope=\"col\">Action</th>\r\n"
     			+ "    </tr>\r\n"
     			+ "  </thead>\r\n");
 if(rs!=null)
@@ -33,7 +31,6 @@ if(rs!=null)
 		  String s = rs.getInt(1)+":"+rs.getString(2);
 		out.println("  <tbody>\r\n"
     			+ "    <tr>\r\n"
-    			+ "      <th scope=\"row\">"+rs.getInt(1)+"</th>\r\n"
     			+ "      <td>"+rs.getString(2)+"</td>\r\n"
     			+ "      <td>"+rs.getString(3)+"</td>\r\n"
     			+ "      <td>"+rs.getInt(4)+"</td>\r\n"

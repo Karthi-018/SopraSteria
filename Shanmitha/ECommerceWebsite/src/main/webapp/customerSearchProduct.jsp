@@ -11,10 +11,14 @@
 </head>
 <body>
 <center><%@ include file="customerMenubar.jsp" %></center>
+<br>
+<br>
+<br>
+<center>
 <form action="CustomerSearchServlet" method="post">
 <label>Name</label>
 <input type = "text" name = "search"   placeholder = "Enter product name to search:">
-<input type = "submit" value = "search" name="act"></form>
+<input type = "submit" value = "search" name="act"></form></center>
 <% 
 
 ResultSet rs = (ResultSet)request.getAttribute("resultSet"); 

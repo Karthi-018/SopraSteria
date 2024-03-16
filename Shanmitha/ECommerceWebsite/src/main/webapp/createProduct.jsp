@@ -21,7 +21,6 @@
 <label>Product Quantity: </label>
 <input type="text" name="quantity"/><br><br>
 <input type="submit" value="Add" name="act"/>
-<input type="reset" value="Reset"/><br><br>
 </form>
 
 </body>

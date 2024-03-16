@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AdminValidationServlet
+ * Servlet implementation class AdminInvalidationServlet
  */
-@WebServlet("/AdminValidationServlet")
-public class AdminValidationServlet extends HttpServlet {
+@WebServlet("/AdminInvalidationServlet")
+public class AdminInvalidationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminValidationServlet() {
+    public AdminInvalidationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,23 +34,15 @@ public class AdminValidationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
-		String email = request.getParameter("validate");
+		String email = request.getParameter("invalidate");
 		try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
 	    Connection c= DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce","root","root");
 	    
-	    PreparedStatement s1=c.prepareStatement("select * from generate_number");
-	    ResultSet rs = s1.executeQuery();
-	    rs.next();
-	    int num = rs.getInt(1)+1;
-	    
-	    PreparedStatement s2=c.prepareStatement("update generate_number set num = ?");
-	    s2.setInt(1,num);
-	    s2.executeUpdate();
 	    
 	    PreparedStatement s=c.prepareStatement("update customer_details set status = ?, cust_Id = ? where email = ?");
-	    s.setString(1, "active");
-	    s.setInt(2, num);
+	    s.setString(1, "inactive");
+	    s.setInt(2, 0);
 	    s.setString(3,email);
 	    s.executeUpdate();
 	    response.sendRedirect("ValidateCustomerServlet");

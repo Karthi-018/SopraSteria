@@ -36,7 +36,7 @@ public class Bill
     public void billProduct()
     {
         int total = 0;
-        System.out.println("Product_name     Quantity      cost");
+        System.out.println("\nProduct_name     Quantity      cost");
         for (Product_POJO p:l)
         {
             System.out.println(p);

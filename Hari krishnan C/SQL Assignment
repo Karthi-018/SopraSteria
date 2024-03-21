@@ -1,0 +1,76 @@
+
+
+1)      SELECT * from Employees 
+	      where job_id like '%CLERK' and year(hire_date)>1997;
+
+
+2)      SELECT Last_name, JOB_ID, Salary, Commision_pct  
+        from Employees 
+	      WHERE Commision_pct is NOT NULL 
+	      ORDER by Salary desc;
+
+
+3)	    SELECT 'The salary of '||last_name||' after a 10% raise is '||(salary + salary*0.1) as New_Salary 
+        from Employees 
+	      WHERE Commision_pct is NULL;
+
+
+4)	    SELECT LAST_NAME,YEAR,MONTHS 
+        From Employees 
+	      ORDER by YEAR DESC;
+
+
+5)	    SELECT LAST_NAME from Employees 
+	      WHERE LAST_NAME like 'J%' or 
+	      LAST_NAME like 'K%' or 
+	      LAST_NAME like 'L%' or 
+	      LAST_NAME like 'M%';
+
+
+6)	    SELECT Last_name, Salary, DECODE(Commision_pct,NULL,"No","Yes") as Commision 
+        from employees;
+
+
+7)	    SELECT Department_Name, Location_ID, Last_Name, Job_id, Salary 
+        from Employees 
+	      WHERE Location_ID=&Location_ID;
+
+
+8)	    SELECT COUNT(EID)from Employees 
+        WHERE LAST_NAME like 'n';
+
+
+9)	    SELECT Department_id, Department_Name, Location_ID, COUNT(EID) 
+        from Employees
+	      GROUP by Department_id;
+
+
+10)    	SELECT Job_id from Department
+	      WHERE Department_ID = 10 or Department_ID = 20;
+
+
+11)	    SELECT Job_id, Count(Eid) 
+        from Employees 
+	      WHERE Department in('Administrative','Executive') 
+	      GROUP by department 
+	      ORDER by Count(Eid);
+
+
+12)	    SELECT LAST_NAME,HIRE_DATE 
+        from Employees 
+      	WHERE day(hire_date) < 16;
+
+
+13)	    SELECT Last_Name, Salary, TRUNC(SALARY,-3)
+        from Employees;
+
+
+14)	    SELECT employee name,manager name,manager salary,salary grade 
+        from Employees
+      	WHERE Salary > 15000; 
+
+
+15)    	SELECT Dept,Dept_Name,COUNT(Eid), AVG(Salary),Last_name 
+        from Employees
+	      GROUP by Dept_Name;
+

@@ -1,0 +1,4 @@
+com\example\dockerdemo\model\Stud.class
+com\example\dockerdemo\controllers\DockerController.class
+com\example\dockerdemo\model\Stud$StudBuilder.class
+com\example\dockerdemo\DockerDemoApplication.class
